@@ -2,38 +2,57 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import boton.*;
 
-public class GUI implements ActionListener {
+public class GUI {
 
-    private int count = 0;
+    //Panel declaration!
+    private JPanel redPanel;
+
+    private JPanel pinkPanel;
+
+    private JPanel greenPanel;
+
+    private JPanel bluePanel;
+
     private JLabel label;
     private JFrame frame;
-    private JPanel panel;
+
+    private boton Myboton;
 
     public GUI(){
 
         frame = new JFrame();
 
-        JButton button = new JButton("Click Me");
-        button.addActionListener(this);
+        redPanel = new JPanel();
+        redPanel.setBackground(Color.red);
+        redPanel.setBounds(0, 0, 250, 250);
 
-        label = new JLabel("number of Clicks: 0");
+        bluePanel = new JPanel();
+        bluePanel.setBackground(Color.blue);
+        bluePanel.setBounds(250, 0, 250, 250);
 
-        panel = new JPanel();
+        greenPanel = new JPanel();
+        greenPanel.setBackground(Color.green);
+        greenPanel.setBounds(0, 250, 500, 250);
 
-        panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
-        panel.setLayout(new GridLayout(1,1));
-        panel.add(button);
-        panel.add(label);
+        Myboton = new boton();
 
-        frame.setSize(100,100);
-        frame.add(panel, BorderLayout.CENTER);
+        //Starting window!
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
         frame.setTitle("Consorcio");
-        frame.pack();
+        frame.setSize(1280,720);
         frame.setVisible(true);
+
+        frame.add(redPanel);
+        frame.add(bluePanel);
+        frame.add(greenPanel);
+        Myboton.setLocation(100,100,250,250);
+
+        greenPanel.add(Myboton.getBoton());
+        //frame.add(Myboton.getBoton());
+
     }
 
     public static void main(String[] args){
@@ -43,9 +62,5 @@ public class GUI implements ActionListener {
     }
 
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        count++;
-        label.setText("Number of Clicks: "+count);
-    }
+
 }
