@@ -7,18 +7,22 @@ import boton.*;
 public class GUI {
 
     //Panel declaration!
-    private JPanel redPanel;
+    private JPanel redPanel; //header panel
 
-    private JPanel pinkPanel;
+    private JPanel pinkPanel; // footer panel
 
-    private JPanel greenPanel;
+    private JPanel greenPanel; //navigation panel
 
-    private JPanel bluePanel;
+    private JPanel bluePanel; //data panel
+
+    private JPanel yellowPanel; //scrollBar
 
     private JLabel label;
     private JFrame frame;
 
-    private boton Myboton;
+    private boton boton_izq_1;
+    private boton boton_izq_2;
+    private boton boton_izq_3;
 
     public GUI(){
 
@@ -26,32 +30,52 @@ public class GUI {
 
         redPanel = new JPanel();
         redPanel.setBackground(Color.red);
-        redPanel.setBounds(0, 0, 250, 250);
+        redPanel.setPreferredSize(new Dimension(100,100));
 
         bluePanel = new JPanel();
         bluePanel.setBackground(Color.blue);
-        bluePanel.setBounds(250, 0, 250, 250);
+        bluePanel.setPreferredSize(new Dimension(100,100));
 
         greenPanel = new JPanel();
         greenPanel.setBackground(Color.green);
-        greenPanel.setBounds(0, 250, 500, 250);
+        greenPanel.setPreferredSize(new Dimension(150,100));
 
-        Myboton = new boton();
+        boton_izq_1 = new boton();
+        boton_izq_2 = new boton();
+        boton_izq_3 = new boton();
+
+        boton_izq_1.setText("Modificar");
+        boton_izq_2.setText("Expensas");
+        boton_izq_3.setText("Edificios");
+
+        greenPanel.add(boton_izq_1.getBoton());
+        greenPanel.add(boton_izq_2.getBoton());
+        greenPanel.add(boton_izq_3.getBoton());
+
+        pinkPanel = new JPanel();
+        pinkPanel.setBackground(Color.pink);
+        pinkPanel.setPreferredSize(new Dimension(100,100));
+
+        yellowPanel = new JPanel();
+        yellowPanel.setBackground(Color.yellow);
+        yellowPanel.setPreferredSize(new Dimension(100,100));
+
+
 
         //Starting window!
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null);
+        //frame.setLayout(null);
         frame.setTitle("Consorcio");
         frame.setSize(1280,720);
         frame.setVisible(true);
 
-        frame.add(redPanel);
-        frame.add(bluePanel);
-        frame.add(greenPanel);
-        Myboton.setLocation(100,100,250,250);
+        frame.add(redPanel, BorderLayout.NORTH);
+        frame.add(bluePanel,BorderLayout.CENTER);
+        frame.add(greenPanel, BorderLayout.WEST);
+        frame.add(pinkPanel, BorderLayout.SOUTH);
+        frame.add(yellowPanel, BorderLayout.EAST);
 
-        greenPanel.add(Myboton.getBoton());
-        //frame.add(Myboton.getBoton());
+
 
     }
 

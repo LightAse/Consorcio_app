@@ -31,6 +31,17 @@ public class boton implements ActionListener {
 
     }
 
+    public void setText(String texto){
+
+        boton.setText(texto);
+
+    }
+
+    public String getText(){
+
+        return boton.getText();
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == boton){
